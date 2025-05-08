@@ -138,7 +138,7 @@ Iteratively refined models by:
 
 ---
 
-### 🔌 Electric Range Prediction
+###  Electric Range Prediction
 
 | Model                     | R² Score | MAE       | RMSE     | Params                      |
 |---------------------------|----------|-----------|----------|-----------------------------|
