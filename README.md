@@ -36,6 +36,8 @@ This project explores electric vehicle adoption patterns using the Washington St
 The project uses the [Washington State DOL Open Data](https://catalog.data.gov/dataset/electric-vehicle-population-data), containing real-world data on electric vehicles (EVs), including specifications like make, model, electric range, base MSRP, and classification attributes.
 - **File**: `Electric_Vehicle_Population_Data.csv`
 
+---
+
 ## Features
 
 | Feature Name | Description |
@@ -52,6 +54,8 @@ The project uses the [Washington State DOL Open Data](https://catalog.data.gov/d
   
 This dataset is useful for understanding factors affecting EV pricing and range, which has implications in sustainability, EV adoption strategies, and cost prediction models.
 
+---
+
 ## Data Preprocessing
 - Removed irrelevant columns (e.g., `VIN`, `DOL Vehicle ID`)
 - Replaced 0s in `Base MSRP` and `Electric Range` with NaNs
@@ -59,6 +63,8 @@ This dataset is useful for understanding factors affecting EV pricing and range,
 - Applied **OneHotEncoding** for categorical variables
 - Applied **StandardScaler** to numerical columns
 - Created a **ColumnTransformer** for combined preprocessing
+
+---
 
 ##  Exploratory Data Analysis (EDA)
 
@@ -90,6 +96,8 @@ This dataset is useful for understanding factors affecting EV pricing and range,
 
 #### Correlation Matrix
 ![](output_images/output5.png)
+
+---
 
 ## Modeling
 Tested several models on both targets:
