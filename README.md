@@ -77,19 +77,19 @@ This dataset is useful for understanding factors affecting EV pricing and range,
 ###  Visualizations
 
 #### Average MSRP by Top 10 Makes
-![](plots/output.png)
+![](output_images/output.png)
 
 #### Distribution of Base MSRP by Electric Vehicle Type
-![](plots/output2.png)
+![](output_images/output2.png)
 
 #### Electric Range by Model Year
-![](plots/output3.png)
+![](output_images/output3.png)
 
 #### Top 10 Most Common EV Models
-![](plots/output4.png)
+![](output_images/output4.png)
 
 #### Correlation Matrix
-![](plots/output5.png)
+![](output_images/output5.png)
 
 ## Modeling
 Tested several models on both targets:
