@@ -108,3 +108,70 @@ Iteratively refined models by:
 - Trying various regressors and hyperparameter settings via `GridSearchCV`
 
 ## Results
+
+###  Evaluation Metrics
+- **Primary Metric**: R² Score
+- **Supporting Metrics**: MAE and RMSE
+- Evaluated on the 20% held-out test set
+
+---
+
+###  Base MSRP Prediction
+
+| Model             | R² Score | MAE       | RMSE      |
+|------------------|----------|-----------|-----------|
+| Random Forest     | 0.999971 | 3.76      | 92.53     |
+| Gradient Boosting | 0.999625 | 97.87     | 331.95    |
+| Decision Tree     | 0.999153 | 209.98    | 499.11    |
+| Lasso Regression  | 0.996760 | 683.23    | 976.20    |
+| Linear Regression | 0.996643 | 696.75    | 993.61    |
+| Ridge Regression  | 0.990813 | 927.29    | 1643.81   |
+| SVR               | 0.910664 | 946.40    | 5125.91   |
+
+---
+
+### 🔌 Electric Range Prediction
+
+| Model                     | R² Score | MAE       | RMSE     | Params                      |
+|---------------------------|----------|-----------|----------|-----------------------------|
+| Decision Tree             | 1.000000 | 0.000000  | 0.000000 | {'regressor__max_depth': 10}|
+| Random Forest             | 1.000000 | 0.000123  | 0.003138 | Default                     |
+| Gradient Boosting         | 0.999999 | 0.049536  | 0.078397 | Default                     |
+| Linear Regression         | 0.995325 | 3.514502  | 6.168106 | Default                     |
+| Lasso Regression          | 0.989041 | 4.906823  | 9.443428 | {'regressor__alpha': 0.1}   |
+| Ridge Regression          | 0.988828 | 5.779479  | 9.619888 | {'regressor__alpha': 10}    |
+| SVR                       | 0.953821 | 10.889840 | 19.385423| Default                     |
+
+
+---
+
+
+## Overfitting & Underfitting
+
+- **Decision Tree** and **Random Forest** showed perfect scores on Electric Range, indicating potential overfitting.
+- **Regularization models** like Lasso and Ridge generalized better on MSRP.
+- GridSearchCV and cross-validation scores helped detect and avoid underfitting in ensemble models.
+
+---
+
+##  Production Considerations
+
+- Save the trained pipeline using `joblib` for deployment.
+- Ensure consistent preprocessing steps (e.g., one-hot encoding, scaling) during inference.
+- Watch for unseen categories in `Model`, `Make`, or `Electric Utility`.
+- Consider monitoring model drift over time and retraining periodically with updated EV data.
+
+---
+
+##  Future Improvements
+
+- Incorporate features like battery capacity, charging time, and EPA rating.
+- Add NLP embeddings or grouping logic for `Make` and `Model` names.
+- Include economic indicators or regional data for MSRP variation.
+- Extend analysis to predict resale value or lifetime cost.
+
+---
+
+##  Acknowledgment
+
+This project was built using the [Electric Vehicle Population Data](https://catalog.data.gov/dataset/electric-vehicle-population-data) provided by Washington State Department of Licensing.
